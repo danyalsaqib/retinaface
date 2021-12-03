@@ -89,7 +89,7 @@ def detect_faces(img_path, threshold=0.9, model = None, allow_upscaling = True):
     im_tensor, im_info, im_scale = preprocess.preprocess_image(img, allow_upscaling)
     net_out = model(im_tensor)
     net_out = [elt.numpy() for elt in net_out]
-    print("net_out shape: ", net_out.shape)
+    print("net_out shape: ", len(net_out))
     sym_idx = 0
 
     for _idx, s in enumerate(_feat_stride_fpn):
