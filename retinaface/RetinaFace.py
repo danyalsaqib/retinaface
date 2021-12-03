@@ -90,6 +90,8 @@ def detect_faces(img_path, threshold=0.9, model = None, allow_upscaling = True):
     net_out = model(im_tensor)
     net_out = [elt.numpy() for elt in net_out]
     print("net_out shape: ", len(net_out))
+    for i in range(len(net_out)):
+        print("Net Out - ", i, ": ", net_out[i].shape)
     sym_idx = 0
 
     for _idx, s in enumerate(_feat_stride_fpn):
