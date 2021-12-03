@@ -133,6 +133,8 @@ def detect_faces(img_path, threshold=0.9, model = None, allow_upscaling = True):
 
         landmark_deltas = net_out[sym_idx + 2]
         landmark_pred_len = landmark_deltas.shape[3]//A
+        print("Landmarks Deltas Shape: ", landmark_deltas.shape)
+        print("landmark_pred_len//5: ", landmark_pred_len//5)
         landmark_deltas = landmark_deltas.reshape((-1, 5, landmark_pred_len//5))
         landmarks = postprocess.landmark_pred(anchors, landmark_deltas)
         landmarks = landmarks[order, :]
